@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First Web Page</title>
+</head>
+
+<body>
+    <button onclick="subscribe()">Subscripe</button>
+    <button onclick="unsubscribe()">Unsubscribe</button>
+
+    <script>
+        addEventListener("load", async () => {
+            let serviceWorker = await navigator.serviceWorker.register("sw.js");
+            console.log(serviceWorker);
+        });
+
+        async function subscribe() {
+            let serviceWorker = await navigator.serviceWorker.ready;
+            let pushManager = await serviceWorker.pushManager;
+            pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: 'BEItpOofdJWD5yk0CduS3myMFXFuD7EsFFIdNSE13zAA8ch2ThBdEp6wAX--lJqXzlnU5npvsUFZVMJkvNYpPK0'
+            });
+            console.log(JSON.stringify(pushManager));
+        }
+
+        function unsubscribe() {
+            alert("You have unsubscribed from our newsletter");
+        }
+    </script>
+
+</html>
