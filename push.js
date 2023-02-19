@@ -6,6 +6,12 @@ const vapidKeys  = {
 };
 
 push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey, vapidKeys.privateKey);
-
-const subscription = {}
+const subscription = {
+    "endpoint":"https://web.push.apple.com/QOmBTy44oDlLMiWjRMD0NcA1k8NZadkxmU2K1P7te5h2gS0BV8IvDwomJJmLv5ccAXOICHlbSTZ-GC2vQsfdMITRCsbV7-clUzVLHf-auMWXu-z69rUmsKFOlJnW87YoQKhzWkDkAYd5KJyLXIIaDZjbOXIARrZegZo-asMEgJ0",
+    "keys":{
+        "p256dh":"BJKAMvR6XGw4wDFppbRQvq2F-IV8jmQUyyrA8mg9-ONS4grKTz3R7W0kD5KpkkcdiY_NrfeEbG82bRiRLL2bnTI",
+        "auth":"vYMHSkNCutPUSil9CKfVQg"
+    }
+};
 push.sendNotification(subscription, 'test message');
+
